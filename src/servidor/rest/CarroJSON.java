@@ -16,16 +16,16 @@ public class CarroJSON {
             //pega do json os registros da tag carro
             JSONArray vetor = (JSONArray) json.get("carro");
             JSONObject object = (JSONObject) vetor.get(0);
-            carro.setCod(object.getInt("carCod"));
-            carro.setMarca(object.getString("carMarca"));
-            carro.setModelo(object.getString("carModelo"));
-            carro.setCor(object.getString("carCor"));
-            carro.setAno(object.getString("carAno"));
-            carro.setChassi(object.getString("carNumeroChassi"));
-            carro.setKm(object.getString("carQuilometragem"));
-            carro.setPlaca(object.getString("carPlaca"));
-            carro.setObs(object.getString("carObs"));
-            carro.setDono(new ClienteDao().get(object.getInt("car_pesCod")));
+            carro.setCod(object.getInt("cod"));
+            carro.setMarca(object.getString("marca"));
+            carro.setModelo(object.getString("modelo"));
+            carro.setCor(object.getString("cor"));
+            carro.setAno(object.getString("ano"));
+            carro.setChassi(object.getString("chassi"));
+            carro.setKm(object.getString("km"));
+            carro.setPlaca(object.getString("placa"));
+            carro.setObs(object.getString("obs"));
+            carro.setDono(new ClienteDao().get(object.getInt("dono_codigo")));
         } catch (Exception x) {
         }
         return carro;
@@ -57,16 +57,16 @@ public class CarroJSON {
     public static JSONObject preencheJSON(Carro carro) {
         JSONObject registro = new JSONObject();
         try {
-            registro.put("carCod", carro.getCod());
-            registro.put("carMarca", carro.getMarca());
-            registro.put("carModelo", carro.getModelo());
-            registro.put("carCor", carro.getCor());
-            registro.put("carAno", carro.getAno());
-            registro.put("carNumeroChassi", carro.getChassi());
-            registro.put("carQuilometragem", carro.getKm());
-            registro.put("carPlaca", carro.getPlaca());
+            registro.put("cod", carro.getCod());
+            registro.put("marca", carro.getMarca());
+            registro.put("modelo", carro.getModelo());
+            registro.put("cor", carro.getCor());
+            registro.put("ano", carro.getAno());
+            registro.put("chassi", carro.getChassi());
+            registro.put("km", carro.getKm());
+            registro.put("placa", carro.getPlaca());
             registro.put("carObs", carro.getObs());
-            registro.put("car_pesCod", carro.getDono());
+            registro.put("dono_codigo", carro.getDono().getCodigo());
             return registro;
         } catch (JSONException k) {
         }

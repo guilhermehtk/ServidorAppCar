@@ -10,7 +10,7 @@ import javax.persistence.OneToOne;
 import org.hibernate.annotations.Cascade;
 
 @Entity
-@DiscriminatorValue(value="F")
+@DiscriminatorValue(value = "F")
 public class Funcionario extends Pessoa implements Serializable {
 
     private Login login;
@@ -34,7 +34,7 @@ public class Funcionario extends Pessoa implements Serializable {
         this.login = login;
     }
 
-      @OneToMany(mappedBy="funcionario",cascade={CascadeType.ALL})
+    @OneToMany(mappedBy = "funcionario", cascade = {CascadeType.ALL})
     @Cascade(org.hibernate.annotations.CascadeType.DELETE_ORPHAN)
     public List<Servico_OS> getServicosRealizados() {
         return servicosRealizados;
@@ -43,7 +43,5 @@ public class Funcionario extends Pessoa implements Serializable {
     public void setServicosRealizados(List<Servico_OS> servicosRealizados) {
         this.servicosRealizados = servicosRealizados;
     }
-    
-   
 
 }

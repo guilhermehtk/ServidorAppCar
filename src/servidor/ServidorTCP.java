@@ -39,7 +39,7 @@ public class ServidorTCP {
         try {
             ss = new ServerSocket(porta);//soket do servidor
         } catch (Exception e) {
-            System.out.println();
+            System.out.println(e);
         }
         System.out.println("Servidor Ligado");
     }
@@ -106,13 +106,17 @@ public class ServidorTCP {
         try {
             ss = new ServerSocket(porta);//soket do servidor
         } catch (Exception e) {
-            System.out.println(e.toString());
+            System.out.println(e);
         }
         System.out.println("Servidor Ligado");
 
     }
 
     public String request(String request, JSONObject objeto) {
+        if(objeto.length()>1){
+            System.out.println("Tamanho:"+objeto.length());
+            
+        }
         switch (request) {
             // ------------------------------- GET all ------------------------- //
             case "get_Carro_All":

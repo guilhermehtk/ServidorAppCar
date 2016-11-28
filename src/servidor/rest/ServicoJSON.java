@@ -15,9 +15,9 @@ public class ServicoJSON {
             //pega do json os registros da tag servico
             JSONArray vetor = (JSONArray) json.get("servico");
             JSONObject object = (JSONObject) vetor.get(0);
-            servico.setCod(object.getInt("svcCod"));
-            servico.setDescricao(object.getString("svcDescricao"));
-            servico.setValor(object.getDouble("svcValor"));
+            servico.setCod(object.getInt("cod"));
+            servico.setDescricao(object.getString("descricao"));
+            servico.setValor(object.getDouble("valor"));
         } catch (Exception x) {
         }
         return servico;
@@ -50,9 +50,9 @@ public class ServicoJSON {
     public static JSONObject preencheJSON(Servico servico) {
         JSONObject registro = new JSONObject();
         try {
-            registro.put("svcCod", servico.getCod());
-            registro.put("svcDescricao", servico.getDescricao());
-            registro.put("svcValor", servico.getValor());
+            registro.put("cod", servico.getCod());
+            registro.put("descricao", servico.getDescricao());
+            registro.put("valor", servico.getValor());
         } catch (JSONException k) {
         }
         return null;

@@ -17,16 +17,16 @@ public class FuncionarioJSON {
             //pega do json os registros da tag funcionario
             JSONArray vetor = (JSONArray) json.get("funcionario");
             JSONObject object = (JSONObject) vetor.get(0);
-            funcionario.setCodigo(object.getInt("pesCod"));
-            funcionario.setNome(object.getString("pesNome"));
-            funcionario.setCpf(object.getString("pesCpf"));
-            funcionario.setEmail(object.getString("pesEmail"));
-            funcionario.setEndereco(EnderecoJSON.getEnderecoJSON(object.getJSONObject("pesEndereco")));
-            funcionario.setRg(object.getString("pesRg"));
-            funcionario.setSexo(object.getString("pesSexo"));
-            funcionario.setTelefoneF(object.getString("pesTelefoneF"));
-            funcionario.setTelefoneM(object.getString("pesTelefoneM"));
-            funcionario.setLogin(LoginJSON.getLoginJSON(object.getJSONObject("pesLogin")));
+            funcionario.setCodigo(object.getInt("cod"));
+            funcionario.setNome(object.getString("nome"));
+            funcionario.setCpf(object.getString("cpf"));
+            funcionario.setEmail(object.getString("email"));
+            funcionario.setEndereco(EnderecoJSON.getEnderecoJSON(object.getJSONObject("endereco")));
+            funcionario.setRg(object.getString("rg"));
+            funcionario.setSexo(object.getString("sexo"));
+            funcionario.setTelefoneF(object.getString("telefoneF"));
+            funcionario.setTelefoneM(object.getString("telefoneM"));
+            funcionario.setLogin(LoginJSON.getLoginJSON(object.getJSONObject("login")));
         } catch (Exception x) {
         }
         return funcionario;
@@ -59,16 +59,16 @@ public class FuncionarioJSON {
     public static JSONObject preencheJSON(Funcionario funcionario) {
         JSONObject registro = new JSONObject();
         try {
-            registro.put("pesCod", funcionario.getCodigo());
-            registro.put("pesNome", funcionario.getNome());
-            registro.put("pesCpf", funcionario.getCpf());
-            registro.put("pesRg", funcionario.getRg());
-            registro.put("pesTelefoneM", funcionario.getTelefoneM());
-            registro.put("pesTelefoneF", funcionario.getTelefoneF());
-            registro.put("pesEmail", funcionario.getEmail());
-            registro.put("pesSexo", funcionario.getSexo());
-            registro.put("pesEndereco", EnderecoJSON.geraJSONEndereco(funcionario.getEndereco()));
-            registro.put("pesLogin", LoginJSON.geraJSONLogin(funcionario.getLogin()));
+            registro.put("cod", funcionario.getCodigo());
+            registro.put("nome", funcionario.getNome());
+            registro.put("cpf", funcionario.getCpf());
+            registro.put("rg", funcionario.getRg());
+            registro.put("telefoneM", funcionario.getTelefoneM());
+            registro.put("telefoneF", funcionario.getTelefoneF());
+            registro.put("email", funcionario.getEmail());
+            registro.put("sexo", funcionario.getSexo());
+            registro.put("endereco", EnderecoJSON.geraJSONEndereco(funcionario.getEndereco()));
+            registro.put("login", LoginJSON.geraJSONLogin(funcionario.getLogin()));
         } catch (JSONException k) {
         }
         return null;

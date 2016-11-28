@@ -48,7 +48,7 @@ public class Servico_OSDao implements InterfaceDao {
     }
 
     public ArrayList<Servico_OS> getOS(int os) {
-        Query query = manager.createQuery("from Servico_OS where osCod_cod=:osCod").setParameter("osCod", os);
+        Query query = manager.createQuery("from Servico_OS where ordemservico_cod=:osCod").setParameter("osCod", os);
         List<Servico_OS> lista = query.getResultList();
         return (ArrayList<Servico_OS>) lista;
     }

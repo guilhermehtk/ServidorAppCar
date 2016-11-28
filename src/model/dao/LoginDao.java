@@ -11,7 +11,7 @@ public class LoginDao implements InterfaceDao {
     private EntityManager manager;
 
     public LoginDao() {
- manager = JpaUtil.getEntityManager();
+        manager = JpaUtil.getEntityManager();
     }
 
     public int add(Object log) {
@@ -43,12 +43,17 @@ public class LoginDao implements InterfaceDao {
 
     public ArrayList<Login> getAll() {
         List<Login> lista = (List<Login>) manager.createQuery("from Login");
-        return (ArrayList<Login>)lista;
+        return (ArrayList<Login>) lista;
     }
-    
-     public Login getUsuario(Login log) {
-       Query query =  manager.createQuery("from Login where usuario=:user").setParameter("user", log.getUsuario());
-       return (Login) query.getSingleResult();
+
+    public Login getUsuario(Login log) {
+        Query query = manager.createQuery("from Login where usuario=:user").setParameter("user", log.getUsuario());
+        try {
+            return (Login) query.getSingleResult();
+        } catch (Exception e) {
+            System.out.println(e.toString());
+        }
+        return null;
     }
 
 }

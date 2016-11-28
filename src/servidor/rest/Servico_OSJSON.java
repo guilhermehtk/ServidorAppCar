@@ -18,10 +18,10 @@ public class Servico_OSJSON {
             //pega do json os registros da tag servico_os
             JSONArray vetor = (JSONArray) json.get("servico_os");
             JSONObject object = (JSONObject) vetor.get(0);
-            servico_os.setCod(object.getInt("serCod"));
-            servico_os.setFuncionario(new FuncionarioDao().get(object.getInt("ser_funcionario")));
-            servico_os.setOrdemservico(new OrdemServicoDao().get(object.getInt("ser_ordemservico")));
-            servico_os.setServico(new ServicoDao().get(object.getInt("ser_servico")));
+            servico_os.setCod(object.getInt("cod"));
+            servico_os.setFuncionario(new FuncionarioDao().get(object.getInt("funcionario_codigo")));
+            servico_os.setOrdemservico(new OrdemServicoDao().get(object.getInt("ordemservico_cod")));
+            servico_os.setServico(new ServicoDao().get(object.getInt("servico_cod")));
         } catch (Exception x) {
         }
         return servico_os;
@@ -54,10 +54,10 @@ public class Servico_OSJSON {
     public static JSONObject preencheJSON(Servico_OS servico) {
         JSONObject registro = new JSONObject();
         try {
-            registro.put("serCod", servico.getCod());
-            registro.put("ser_funcionario", servico.getFuncionario().getCodigo());
-            registro.put("ser_ordemservico", servico.getOrdemservico().getCod());
-            registro.put("ser_servico", servico.getServico().getCod());
+            registro.put("cod", servico.getCod());
+            registro.put("funcionario_codigo", servico.getFuncionario().getCodigo());
+            registro.put("ordemservico_codigo", servico.getOrdemservico().getCod());
+            registro.put("servico_codigo", servico.getServico().getCod());
         } catch (JSONException k) {
         }
         return null;

@@ -15,13 +15,13 @@ public class EnderecoJSON {
             //pega do json os registros da tag endereco
             JSONArray vetor = (JSONArray) json.get("endereco");
             JSONObject object = (JSONObject) vetor.get(0);
-            endereco.setCod(object.getInt("endCod"));
-            endereco.setRua(object.getString("endRua"));
-            endereco.setNumero(object.getString("endNumero"));
-            endereco.setComplemento(object.getString("endComplemento"));
-            endereco.setBairro(object.getString("endBairro"));
-            endereco.setCidade(object.getString("endCidade"));
-            endereco.setCep(object.getString("endCep"));
+            endereco.setCod(object.getInt("cod"));
+            endereco.setRua(object.getString("rua"));
+            endereco.setNumero(object.getString("numero"));
+            endereco.setComplemento(object.getString("complemento"));
+            endereco.setBairro(object.getString("bairro"));
+            endereco.setCidade(object.getString("cidade"));
+            endereco.setCep(object.getString("cep"));
         } catch (Exception x) {
         }
         return endereco;
@@ -54,13 +54,13 @@ public class EnderecoJSON {
     public static JSONObject preencheJSON(Endereco endereco) {
         JSONObject registro = new JSONObject();
         try {
-            registro.put("endCod", endereco.getCod());
-            registro.put("endRua", endereco.getRua());
-            registro.put("endNumero", endereco.getNumero());
-            registro.put("endComplemento", endereco.getComplemento());
-            registro.put("endBairro", endereco.getBairro());
-            registro.put("endCidade", endereco.getCidade());
-            registro.put("endCep", endereco.getCep());
+            registro.put("cod", endereco.getCod());
+            registro.put("rua", endereco.getRua());
+            registro.put("numero", endereco.getNumero());
+            registro.put("complemento", endereco.getComplemento());
+            registro.put("bairro", endereco.getBairro());
+            registro.put("cidade", endereco.getCidade());
+            registro.put("cep", endereco.getCep());
         } catch (JSONException k) {
         }
         return null;

@@ -15,9 +15,9 @@ public class LoginJSON {
             //pega do json os registros da tag login
             JSONArray vetor = (JSONArray) json.get("login");
             JSONObject object = (JSONObject) vetor.get(0);
-            login.setCod(object.getInt("loginCod"));
-            login.setUsuario(object.getString("loginUsuario"));
-            login.setSenha(object.getString("loginSenha"));
+            login.setCod(object.getInt("cod"));
+            login.setUsuario(object.getString("usuario"));
+            login.setSenha(object.getString("senha"));
         } catch (Exception x) {
         }
         return login;
@@ -50,9 +50,9 @@ public class LoginJSON {
     public static JSONObject preencheJSON(Login login) {
         JSONObject registro = new JSONObject();
         try {
-            registro.put("loginCod", login.getCod());
-            registro.put("loginUsuario", login.getUsuario());
-            registro.put("loginSenha", login.getSenha());
+            registro.put("cod", login.getCod());
+            registro.put("usuario", login.getUsuario());
+            registro.put("senha", login.getSenha());
         } catch (JSONException k) {
         }
         return null;

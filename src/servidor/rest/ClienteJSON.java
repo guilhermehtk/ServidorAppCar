@@ -15,15 +15,15 @@ public class ClienteJSON {
             //pega do json os registros da tag cliente
             JSONArray vetor = (JSONArray) json.get("cliente");
             JSONObject object = (JSONObject) vetor.get(0);
-            cliente.setCodigo(object.getInt("pesCod"));
-            cliente.setNome(object.getString("pesNome"));
-            cliente.setCpf(object.getString("pesCpf"));
-            cliente.setEmail(object.getString("pesEmail"));
+            cliente.setCodigo(object.getInt("codigo"));
+            cliente.setNome(object.getString("nome"));
+            cliente.setCpf(object.getString("cpf"));
+            cliente.setEmail(object.getString("email"));
             cliente.setEndereco(EnderecoJSON.getEnderecoJSON(object.getJSONObject("endereco")));
-            cliente.setRg(object.getString("pesRg"));
-            cliente.setSexo(object.getString("pesSexo"));
-            cliente.setTelefoneF(object.getString("pesTelefoneF"));
-            cliente.setTelefoneM(object.getString("pesTelefoneM"));
+            cliente.setRg(object.getString("rg"));
+            cliente.setSexo(object.getString("sexo"));
+            cliente.setTelefoneF(object.getString("telefoneF"));
+            cliente.setTelefoneM(object.getString("telefoneM"));
         } catch (Exception x) {
         }
         return cliente;
@@ -56,15 +56,15 @@ public class ClienteJSON {
     public static JSONObject preencheJSON(Cliente cliente) {
         JSONObject registro = new JSONObject();
         try {
-            registro.put("pesCod", cliente.getCodigo());
-            registro.put("pesNome", cliente.getNome());
-            registro.put("pesCpf", cliente.getCpf());
-            registro.put("pesRg", cliente.getRg());
-            registro.put("pesTelefoneM", cliente.getTelefoneM());
-            registro.put("pesTelefoneF", cliente.getTelefoneF());
-            registro.put("pesEmail", cliente.getEmail());
-            registro.put("pesSexo", cliente.getSexo());
-            registro.put("pesEndereco", cliente.getEndereco());
+            registro.put("codigo", cliente.getCodigo());
+            registro.put("nome", cliente.getNome());
+            registro.put("cpf", cliente.getCpf());
+            registro.put("rg", cliente.getRg());
+            registro.put("telefoneM", cliente.getTelefoneM());
+            registro.put("telefoneF", cliente.getTelefoneF());
+            registro.put("email", cliente.getEmail());
+            registro.put("sexo", cliente.getSexo());
+            registro.put("endereco", EnderecoJSON.preencheJSON(cliente.getEndereco()));
         } catch (JSONException k) {
         }
         return null;
